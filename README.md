@@ -1,6 +1,6 @@
 # OmniAuth Gusto
 
-Official OmniAuth strategy for [Gusto’s API](https://docs.gusto.com/)
+Official OmniAuth strategy for [Gusto’s API](https://docs.gusto.com/).
 
 ## Installation
 
@@ -48,8 +48,8 @@ For more information on how to use OmniAuth, refer to the [OmniAuth documentatio
 ## Gusto’s API
 Use the access token from the Auth Hash `request.env['omniauth.auth']['credentials']['token']` to
 make calls to other [Gusto API](https://docs.gusto.com/) endpoints
-such as [Payrolls](https://docs.gusto.com/v1/payrolls).
-To gain access to Gusto’s API, contact Gusto to establish a client id and secret.
+such as [payrolls](https://docs.gusto.com/v1/payrolls).
+To gain access to Gusto’s API, contact [Gusto](https://gusto.com/about/contact) to establish a client id and secret.
 
 ## Sample Response
 
