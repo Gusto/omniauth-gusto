@@ -30,19 +30,26 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
-The following OmniAuth route will become available to initiate authentication:
+The route `/auth/gusto` will become available to initiate authentication.
+Set up the callback route `/auth/gusto/callback` and tie to a controller action
+to handle any post-authentication actions.
 
 ```ruby
-/auth/gusto
-```
+# config/routes.rb
 
-Set up the following callback route and create a controller action to perform any actions
-necessary
-```
-/auth/gusto/callback
+Rails.application.routes.draw do
+  get '/auth/gusto/callback', to: 'sample_controller#gusto'
+end
+
 ```
 
 For more information on how to use OmniAuth, refer to the [OmniAuth documentation](https://github.com/omniauth/omniauth).
+
+## Gusto’s API
+Use the access token from the Auth Hash `request.env['omniauth.auth']['credentials']['token']` to
+make calls to other [Gusto API](https://docs.gusto.com/) endpoints
+such as [Payrolls](https://docs.gusto.com/v1/payrolls).
+To gain access to Gusto’s API, contact Gusto to establish a client id and secret.
 
 ## Sample Response
 
@@ -93,12 +100,6 @@ Below is an example Auth Hash availble in `request.env['omniauth.auth']`
   }
 }
 ```
-
-## Gusto’s API
-Use the access token from the Auth Hash `request.env['omniauth.auth']['credentials']['token']` to
-make calls to other [Gusto API](https://docs.gusto.com/) endpoints
-such as [Payrolls](https://docs.gusto.com/v1/payrolls).
-To gain access to Gusto’s API, contact Gusto to establish a client id and secret.
 
 ## License
 
