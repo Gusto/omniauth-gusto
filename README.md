@@ -49,7 +49,7 @@ For more information on how to use OmniAuth, refer to the [OmniAuth documentatio
 Use the access token from the Auth Hash `request.env['omniauth.auth']['credentials']['token']` to
 make calls to other [Gusto API](https://docs.gusto.com/) endpoints
 such as [payrolls](https://docs.gusto.com/v1/payrolls).
-To gain access to Gusto’s API, contact [Gusto](https://gusto.com/about/contact) to establish a client id and secret.
+To gain access to Gusto’s API, [contact Gusto](https://gusto.com/about/contact) to establish a client id and secret.
 
 ## Sample Response
 
