@@ -33,7 +33,7 @@ describe OmniAuth::Strategies::Gusto do
     describe 'response hash' do
       it 'returns fields from the response hash' do
         expect(subject.uid).to eq(uid)
-        expect(subject.info[:email]).to eq(email)
+        expect(subject.info['email']).to eq(email)
       end
     end
   end
