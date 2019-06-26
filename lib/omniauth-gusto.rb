@@ -1,4 +1,5 @@
-require "omniauth/gusto/version"
+require "omniauth-gusto/version"
+require "omniauth/strategies/gusto"
 
 module Omniauth
   module Gusto

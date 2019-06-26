@@ -1,14 +1,22 @@
-require "bundler/setup"
-require "omniauth/gusto"
+require 'rspec'
+require 'rack/test'
+require 'webmock/rspec'
+require 'omniauth'
+require 'omniauth-gusto'
 
+# See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.run_all_when_everything_filtered = true
+  config.filter_run :focus
 
-  # Disable RSpec exposing methods globally on `Module` and `main`
-  config.disable_monkey_patching!
+  config.include WebMock::API
+  config.include Rack::Test::Methods
+  config.extend  OmniAuth::Test::StrategyMacros, :type => :strategy
 
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
-  end
+  # Run specs in random order to surface order dependencies. If you find an
+  # order dependency and want to debug it, you can fix the order by providing
+  # the seed, which is printed after each run.
+  #     --seed 1234
+  config.order = 'random'
 end
