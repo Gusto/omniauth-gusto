@@ -5,15 +5,15 @@ describe OmniAuth::Strategies::Gusto do
     described_class.new({})
   end
 
-  describe "production client options" do
-    it { expect(subject.options.name).to eq("gusto") }
+  describe 'production client options' do
+    it { expect(subject.options.name).to eq('gusto') }
 
-    it { expect(subject.options.client_options.site).to eq("https://api.gusto-staging.com/") }
-    it { expect(subject.options.client_options.authorize_url).to eq("/oauth/authorize") }
-    it { expect(subject.options.client_options.token_url).to eq("/oauth/token") }
+    it { expect(subject.options.client_options.site).to eq('https://api.gusto-staging.com/') }
+    it { expect(subject.options.client_options.authorize_url).to eq('/oauth/authorize') }
+    it { expect(subject.options.client_options.token_url).to eq('/oauth/token') }
   end
 
-  describe "callback phase instance methods" do
+  describe 'callback phase instance methods' do
     let(:uid) { 123 }
     let(:email) { 'blah@blah.com' }
     let(:response_params) {
@@ -27,11 +27,11 @@ describe OmniAuth::Strategies::Gusto do
 
     before do
       allow(subject).to receive(:access_token).and_return(access_token)
-      allow(access_token).to receive(:get).with("/v1/me").and_return(oauth2_response)
+      allow(access_token).to receive(:get).with('/v1/me').and_return(oauth2_response)
     end
 
-    describe "response hash" do
-      it "returns fields from the response hash" do
+    describe 'response hash' do
+      it 'returns fields from the response hash' do
         expect(subject.uid).to eq(uid)
         expect(subject.info[:email]).to eq(email)
       end
