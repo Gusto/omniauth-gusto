@@ -1,8 +1,6 @@
-# Omniauth::Gusto
+# OmniAuth Gusto
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/omniauth/gusto`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Official OmniAuth strategy for [Gusto API](https://docs.gusto.com/)
 
 ## Installation
 
@@ -22,22 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Integrate the strategy into your middleware. Refer to OmniAuth documentation if using Devise.
 
-## Development
+```ruby
+# config/initializers/omniauth.rb
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :gusto, ENV['GUSTO_CLIENT_ID'], ENV['GUSTO_CLIENT_SECRET']
+end
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To use Gusto's API, contact Gusto for establishing a client id and secret.
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/omniauth-gusto. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+For more information on how to use OmniAuth, refer to the [OmniAuth documentation](https://github.com/omniauth/omniauth).
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Omniauth::Gusto project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/omniauth-gusto/blob/master/CODE_OF_CONDUCT.md).
