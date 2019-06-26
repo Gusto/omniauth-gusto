@@ -1,5 +1,3 @@
-module Omniauth
-  module Gusto
-    VERSION = "0.1.0"
-  end
+module OmniauthGusto
+  VERSION = "0.1.0"
 end

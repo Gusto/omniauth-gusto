@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "omniauth-gusto/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "omniauth-omniauth-gusto"
-  spec.version       = Omniauth::Gusto::VERSION
+  spec.name          = "omniauth-gusto"
+  spec.version       = OmniauthGusto::VERSION
   spec.authors       = ["juliannaroen","lisasli"]
   spec.email         = ["julianna.roen@gusto.com","lisa.li@gusto.com"]
 
