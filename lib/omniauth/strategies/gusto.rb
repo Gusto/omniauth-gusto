@@ -9,9 +9,9 @@ module OmniAuth
 
       option(
         :client_options,
-        site:          'https://api.gusto.com/',
+        site: 'https://api.gusto.com/',
         authorize_url: '/oauth/authorize',
-        token_url:     '/oauth/token',
+        token_url: '/oauth/token',
         )
 
       option :authorize_options, [:redirect_uri, :response_type]
