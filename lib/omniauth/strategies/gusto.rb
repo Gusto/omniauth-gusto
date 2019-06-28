@@ -12,7 +12,7 @@ module OmniAuth
         site: 'https://api.gusto.com/',
         authorize_url: '/oauth/authorize',
         token_url: '/oauth/token',
-        )
+      )
 
       option :authorize_options, [:redirect_uri, :response_type]
 
