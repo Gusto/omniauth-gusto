@@ -1,6 +1,6 @@
 # OmniAuth Gusto
 
-Official OmniAuth strategy for [Gusto’s API](https://docs.gusto.com/).
+Official OmniAuth strategy for authenticating with [Gusto](https://gusto.com/) using [Gusto’s API](https://docs.gusto.com/).
 
 ## Installation
 
