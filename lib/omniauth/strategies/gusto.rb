@@ -25,6 +25,8 @@ module OmniAuth
       #   info:
       #     email: Gusto email of the user
       #     name: Gusto email of the user
+      #   extra:
+      #     raw_info: User info gained from https://docs.gusto.com/v1/current_user
       #
       # See https://docs.gusto.com/ for detailed info about Gusto's API
 

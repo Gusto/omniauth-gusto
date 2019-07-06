@@ -53,7 +53,7 @@ To gain access to Gusto’s API, [contact Gusto](https://gusto.com/about/contact
 
 ## Sample Response
 
-Below is an example Auth Hash availble in `request.env['omniauth.auth']`. Note `name` is set to the user’s email and that employee names will have to be fetched from the [employees endpoint](https://docs.gusto.com/v1/employees).
+Below is an example Auth Hash availble in `request.env['omniauth.auth']`. Note `info['name']` is set to the user’s email and that employee names will have to be fetched from the [employees endpoint](https://docs.gusto.com/v1/employees).
 
 ```ruby
 {
