@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe OmniAuth::Strategies::Gusto do
@@ -16,14 +18,14 @@ describe OmniAuth::Strategies::Gusto do
   describe 'callback phase instance methods' do
     let(:uid) { 123 }
     let(:email) { 'blah@blah.com' }
-    let(:response_params) {
+    let(:response_params) do
       {
         'id' => uid,
-        'email' => email,
+        'email' => email
       }
-    }
+    end
     let(:access_token) { instance_double('AccessToken') }
-    let(:oauth2_response) { instance_double('Oauth2::Response', parsed: response_params)}
+    let(:oauth2_response) { instance_double('Oauth2::Response', parsed: response_params) }
 
     before do
       allow(subject).to receive(:access_token).and_return(access_token)

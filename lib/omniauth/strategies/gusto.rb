@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'omniauth-oauth2'
 
 module OmniAuth
@@ -11,10 +13,10 @@ module OmniAuth
         :client_options,
         site: 'https://api.gusto.com/',
         authorize_url: '/oauth/authorize',
-        token_url: '/oauth/token',
+        token_url: '/oauth/token'
       )
 
-      option :authorize_options, [:redirect_uri, :response_type]
+      option :authorize_options, %i[redirect_uri response_type]
 
       # Response phase
       #
@@ -24,7 +26,7 @@ module OmniAuth
       #     email: Gusto email of the user
       #     name: Gusto email of the user
       #
-      # See https://docs.gusto.com/ for detailed info about Gusto’s API
+      # See https://docs.gusto.com/ for detailed info about Gusto's API
 
       uid do
         raw_info['id']
