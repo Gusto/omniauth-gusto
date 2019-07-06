@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pry-byebug'
 require 'rspec'
 require 'rack/test'
 require 'webmock/rspec'
