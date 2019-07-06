@@ -53,7 +53,7 @@ To gain access to Gusto’s API, [contact Gusto](https://gusto.com/about/contact
 
 ## Sample Response
 
-Below is an example Auth Hash availble in `request.env['omniauth.auth']`
+Below is an example Auth Hash availble in `request.env['omniauth.auth']`:
 
 ```ruby
 {
