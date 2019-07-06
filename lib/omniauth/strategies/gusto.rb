@@ -19,10 +19,12 @@ module OmniAuth
       # Response phase
       #
       # Following params are returned:
-      #   uid: Gusto user id of the user that initiated the authentication request.
-      #   email: Gusto email of the user
+      #   uid: Gusto user id of the user that initiated the authentication request
+      #   info:
+      #     email: Gusto email of the user
+      #     name: Gusto email of the user
       #
-      # See https://docs.gusto.com/ for detailed info about Gusto API
+      # See https://docs.gusto.com/ for detailed info about Gusto’s API
 
       uid do
         raw_info['id']
