@@ -8,9 +8,6 @@
 /tmp/
 
 *.gem
-.rspec
-Gemfile.lock
-.rubocop.yml
 
 # rspec failure tracking
 .rspec_status
