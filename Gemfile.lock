@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     omniauth-gusto (0.1.0)
-      omniauth (~> 1.9)
       omniauth-oauth2 (~> 1.6)
 
 GEM
@@ -43,8 +42,6 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     rack (2.0.7)
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rake (10.5.0)
     rspec (3.8.0)
@@ -77,7 +74,6 @@ DEPENDENCIES
   bundler (~> 2.0)
   omniauth-gusto!
   pry-byebug
-  rack-test
   rake (~> 10.0)
   rspec (~> 3.0)
   rubocop

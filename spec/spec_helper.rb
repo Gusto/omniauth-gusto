@@ -2,7 +2,6 @@
 
 require 'pry-byebug'
 require 'rspec'
-require 'omniauth'
 require 'omniauth-gusto'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
