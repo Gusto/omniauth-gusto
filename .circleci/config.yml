@@ -7,7 +7,7 @@ orbs:
         docker:
           - image: circleci/ruby:2.6.0-node-browsers
 
-    commmands:
+    commands:
       install:
         steps:
           - checkout
