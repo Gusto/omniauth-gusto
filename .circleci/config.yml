@@ -3,10 +3,10 @@ version: 2.1
 orbs:
   omniauth-gusto:
     executors:
-      ruby-2.5:
+      ruby-2-5:
         docker:
           - image: circleci/ruby:2.5-node-browsers
-      ruby-2.6:
+      ruby-2-6:
         docker:
           - image: circleci/ruby:2.6-node-browsers
 
@@ -42,7 +42,7 @@ orbs:
           executor:
             description: What executor
             type: string
-            default: ruby-2.6
+            default: ruby-2-6
         steps:
           - install
           - run:
@@ -65,7 +65,7 @@ orbs:
               destination: test-results
 
       lint:
-        executor: ruby-2.6
+        executor: ruby-2-6
         steps:
           - install
           - run:
@@ -73,7 +73,7 @@ orbs:
               command: bundle exec rubocop
 
       publish:
-        executor: ruby-2.6
+        executor: ruby-2-6
         steps:
           - run: echo 'Publishing'
 
@@ -84,13 +84,13 @@ workflows:
       - omniauth-gusto/test:
           name: test
       - omniauth-gusto/test:
-          name: test-2.5
-          executor: ruby-2.5
+          name: test-2-5
+          executor: ruby-2-5
       - omniauth-gusto/lint:
           name: lint
       - omniauth-gusto/publish:
           name: publish
           requires:
-            - test-2.5
+            - test-2-5
             - test
             - lint
