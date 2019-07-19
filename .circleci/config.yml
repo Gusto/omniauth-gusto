@@ -3,6 +3,12 @@ version: 2.1
 orbs:
   omniauth-gusto:
     executors:
+      ruby-2-3:
+        docker:
+          - image: circleci/ruby:2.3-node-browsers
+      ruby-2-4:
+        docker:
+          - image: circleci/ruby:2.4-node-browsers
       ruby-2-5:
         docker:
           - image: circleci/ruby:2.5-node-browsers
@@ -82,15 +88,24 @@ workflows:
   CI:
     jobs:
       - omniauth-gusto/test:
-          name: test
+          name: test (Ruby 2.3)
+          executor: ruby-2-3
       - omniauth-gusto/test:
-          name: test-2-5
+          name: test (Ruby 2.4)
+          executor: ruby-2-4
+      - omniauth-gusto/test:
+          name: test (Ruby 2.5)
           executor: ruby-2-5
+      - omniauth-gusto/test:
+          name: test (Ruby 2.6)
+          executor: ruby-2-6
       - omniauth-gusto/lint:
           name: lint
       - omniauth-gusto/publish:
           name: publish
           requires:
-            - test-2-5
-            - test
+            - test (Ruby 2.3)
+            - test (Ruby 2.4)
+            - test (Ruby 2.5)
+            - test (Ruby 2.6)
             - lint
