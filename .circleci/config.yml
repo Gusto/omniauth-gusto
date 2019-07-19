@@ -49,7 +49,7 @@ jobs:
           #     --out /tmp/test-results/rspec.xml \
           #     --format progress \
           #     $TEST_FILES
-          command: bundle exec rspec spec/
+          command: bundle --version && bundle exec rspec spec/
 
       # collect reports
       - store_test_results:
