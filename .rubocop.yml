@@ -1,0 +1,16 @@
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - Gemfile
+    - omniauth-gusto.gemspec
+    - lib/omniauth-gusto.rb
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - ./**/*_spec.rb
+
+Naming/FileName:
+  Exclude:
+    - lib/omniauth-gusto.rb

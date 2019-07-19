@@ -4,6 +4,7 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
+    # Provides an Omniauth strategy for Gusto
     class Gusto < OmniAuth::Strategies::OAuth2
       option :name, 'gusto'
 
