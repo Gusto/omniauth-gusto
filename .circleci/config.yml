@@ -64,21 +64,21 @@ orbs:
               name: lint
               command: bundle exec rubocop
 
-
       publish:
+        executor: ruby
         steps:
           - echo 'Publishing'
 
 workflows:
-    version: 2
-    CI:
-        jobs:
-            - omniauth-gusto/test:
-              name: test
-            - omniauth-gusto/lint:
-              name: lint
-            - omniauth-gusto/publish:
-              name: publish
-              requires:
-                - test
-                - lint
+  version: 2
+  CI:
+    jobs:
+      - omniauth-gusto/test:
+          name: test
+      - omniauth-gusto/lint:
+          name: lint
+      - omniauth-gusto/publish:
+          name: publish
+          requires:
+            - test
+            - lint
