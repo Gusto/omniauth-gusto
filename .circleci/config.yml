@@ -67,7 +67,7 @@ orbs:
       publish:
         executor: ruby
         steps:
-          - echo 'Publishing'
+          - run: echo 'Publishing'
 
 workflows:
   version: 2
