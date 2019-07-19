@@ -46,9 +46,7 @@ orbs:
         executor: << parameters.executor >>
         parameters:
           executor:
-            description: What executor
             type: string
-            default: ruby-2-6
         steps:
           - install
           - run:
@@ -78,6 +76,15 @@ orbs:
               name: lint
               command: bundle exec rubocop
 
+      build:
+        executor: << parameters.executor >>
+        parameters:
+          executor:
+            type: string
+        steps:
+          - install
+          - run: gem build omniauth-gusto.gemspec
+
       publish:
         executor: ruby-2-6
         steps:
@@ -101,6 +108,18 @@ workflows:
           executor: ruby-2-6
       - omniauth-gusto/lint:
           name: lint
+      - omniauth-gusto/build:
+          name: build (Ruby 2.3)
+          executor: ruby-2-3
+      - omniauth-gusto/build:
+          name: build (Ruby 2.4)
+          executor: ruby-2-4
+      - omniauth-gusto/build:
+          name: build (Ruby 2.5)
+          executor: ruby-2-5
+      - omniauth-gusto/build:
+          name: build (Ruby 2.6)
+          executor: ruby-2-6
       - omniauth-gusto/publish:
           name: publish
           requires:
@@ -109,3 +128,7 @@ workflows:
             - test (Ruby 2.5)
             - test (Ruby 2.6)
             - lint
+            - build (Ruby 2.3)
+            - build (Ruby 2.4)
+            - build (Ruby 2.5)
+            - build (Ruby 2.6)
