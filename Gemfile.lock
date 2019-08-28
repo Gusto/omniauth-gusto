@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-gusto (0.1.0)
+    omniauth-gusto (1.0.1)
       omniauth-oauth2 (~> 1.6)
 
 GEM
