@@ -1,54 +1,19 @@
 version: 2.1
 
 orbs:
+  gusto: gusto/gusto@0.0.9
   omniauth-gusto:
-    executors:
-      ruby-2-3:
-        docker:
-          - image: circleci/ruby:2.3-node-browsers
-      ruby-2-4:
-        docker:
-          - image: circleci/ruby:2.4-node-browsers
-      ruby-2-5:
-        docker:
-          - image: circleci/ruby:2.5-node-browsers
-      ruby-2-6:
-        docker:
-          - image: circleci/ruby:2.6-node-browsers
-
-    commands:
-      install:
-        steps:
-          - checkout
-          - run:
-              name: Configure Bundler
-              command: |
-                echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-                source $BASH_ENV
-                gem install bundler
-          # Download and cache dependencies
-          - restore_cache:
-              keys:
-                - v1-dependencies-{{ checksum "Gemfile.lock" }}
-                # fallback to using the latest cache if no exact match is found
-                - v1-dependencies-
-          - run:
-              name: install dependencies
-              command: |
-                bundle install --jobs=4 --retry=3 --path vendor/bundle
-          - save_cache:
-              paths:
-                - ./vendor/bundle
-              key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+    orbs:
+      gusto: gusto/gusto@0.0.9
 
     jobs:
       test:
         executor: << parameters.executor >>
         parameters:
           executor:
-            type: string
+            type: executor
         steps:
-          - install
+          - gusto/bundle-install
           - run:
               name: run tests
               command: |
@@ -68,25 +33,17 @@ orbs:
               path: /tmp/test-results
               destination: test-results
 
-      lint:
-        executor: ruby-2-6
-        steps:
-          - install
-          - run:
-              name: lint
-              command: bundle exec rubocop
-
       build:
         executor: << parameters.executor >>
         parameters:
           executor:
             type: string
         steps:
-          - install
+          - gusto/bundle-install
           - run: gem build omniauth-gusto.gemspec
 
       publish:
-        executor: ruby-2-6
+        executor: gusto/ruby-2-6
         steps:
           - run: echo 'Publishing'
 
@@ -96,30 +53,30 @@ workflows:
     jobs:
       - omniauth-gusto/test:
           name: test (Ruby 2.3)
-          executor: ruby-2-3
+          executor: gusto/ruby-2-3
       - omniauth-gusto/test:
           name: test (Ruby 2.4)
-          executor: ruby-2-4
+          executor: gusto/ruby-2-4
       - omniauth-gusto/test:
           name: test (Ruby 2.5)
-          executor: ruby-2-5
+          executor: gusto/ruby-2-5
       - omniauth-gusto/test:
           name: test (Ruby 2.6)
-          executor: ruby-2-6
-      - omniauth-gusto/lint:
+          executor: gusto/ruby-2-6
+      - gusto/ruby-lint:
           name: lint
       - omniauth-gusto/build:
           name: build (Ruby 2.3)
-          executor: ruby-2-3
+          executor: gusto/ruby-2-3
       - omniauth-gusto/build:
           name: build (Ruby 2.4)
-          executor: ruby-2-4
+          executor: gusto/ruby-2-4
       - omniauth-gusto/build:
           name: build (Ruby 2.5)
-          executor: ruby-2-5
+          executor: gusto/ruby-2-5
       - omniauth-gusto/build:
           name: build (Ruby 2.6)
-          executor: ruby-2-6
+          executor: gusto/ruby-2-6
       - omniauth-gusto/publish:
           name: publish
           requires:
