@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.email         = ['julianna.roen@gusto.com', 'lisa.li@gusto.com']
 
   spec.summary       = 'Official OmniAuth strategy for Gusto'
-  spec.description   = 'Official OmniAuth strategy for Gusto'
-  spec.homepage      = ''
+  spec.description   = 'OmniAuth strategy for authenticating to use Gusto’s API with OAuth 2'
+  spec.homepage      = 'https://github.com/Gusto/omniauth-gusto'
   spec.license       = 'MIT'
 
   spec.files         = Dir.chdir(File.expand_path(__dir__)) do
