@@ -1,6 +1,6 @@
 # OmniAuth Gusto
 
-Official OmniAuth strategy for authenticating with [Gusto](https://gusto.com/) using [Gusto’s API](https://docs.gusto.com/).
+Official OmniAuth strategy for authenticating to use [Gusto’s API](https://docs.gusto.com/) with OAuth 2.
 
 [![CircleCI](https://circleci.com/gh/Gusto/omniauth-gusto.svg?style=shield&circle-token=909a0685695a00064b3ebc9c3374a61ea85d8cf0)](https://circleci.com/gh/Gusto/omniauth-gusto)
 
