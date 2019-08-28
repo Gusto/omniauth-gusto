@@ -12,3 +12,6 @@
 
 # rspec failure tracking
 .rspec_status
+
+# built CircleCI configs
+.circleci/processed-config.yml
