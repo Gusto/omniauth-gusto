@@ -106,3 +106,4 @@ Below is an example Auth Hash availble in `request.env['omniauth.auth']`. Note `
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+test

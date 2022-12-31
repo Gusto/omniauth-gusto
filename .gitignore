@@ -15,3 +15,4 @@
 
 # built CircleCI configs
 .circleci/processed-config.yml
+.git/
