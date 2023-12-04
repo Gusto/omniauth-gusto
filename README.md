@@ -2,7 +2,9 @@
 
 > :warning: This repository is deprecated and is not officially supported. 
 
-Official OmniAuth strategy for authenticating to use [Gusto’s API](https://docs.gusto.com/) with OAuth 2.
+___
+
+OmniAuth strategy for authenticating to use [Gusto’s API](https://docs.gusto.com/) with OAuth 2.
 
 ## Installation
 
